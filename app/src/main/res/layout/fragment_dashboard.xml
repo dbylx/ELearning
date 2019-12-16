@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/courseRecycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+<!--    <ScrollView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_1"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_2"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_3"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_4"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_5"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_6"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_7"-->
+<!--                layout="@layout/course" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/include_lay_8"-->
+<!--                layout="@layout/course" />-->
+
+
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+</androidx.appcompat.widget.LinearLayoutCompat>
