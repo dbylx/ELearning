@@ -21,6 +21,10 @@ public class Course  {
 	private String certification;
 	private String certificationDuration;
 
+	private int showType = 1;
+
+
+
 	public String getId() {
 		return id;
 	}
@@ -147,5 +151,13 @@ public class Course  {
 
 	public void setCertificationDuration(String certificationDuration) {
 		this.certificationDuration = certificationDuration;
+	}
+
+	public int getShowType() {
+		return showType;
+	}
+
+	public void setShowType(int showType) {
+		this.showType = showType;
 	}
 }

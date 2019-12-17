@@ -1,5 +1,6 @@
 package com.elearing;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,6 +25,9 @@ public class Table3Activity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
+        Intent intent = getIntent();
+
 
     }
 }
