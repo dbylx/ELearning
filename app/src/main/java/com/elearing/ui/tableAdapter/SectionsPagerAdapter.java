@@ -34,6 +34,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         }else if( position == 1){
             return TeacherFragment.newInstance(2);
+        }else if(position == 2){
+            return TeacherFragment.newInstance(3);
         }
         return PlaceholderFragment.newInstance(1);
     }
@@ -45,6 +47,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             return new String("Course Message");
         }else if(position ==1){
             return new String("Teacher");
+        }else if(position == 2){
+            return new String("material");
         }
         return "d  ";
     }
@@ -52,6 +56,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return 3;
     }
 }
