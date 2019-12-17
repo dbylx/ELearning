@@ -41,6 +41,7 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     RecyclerView recyclerView;
+    private MyAdapter adapter;
     String[] dataArr = {"语文","数学","语文","数学","语文","数学","语文","数学","语文","数学","语文","数学","语文","数学"};
     private List<Course> data = new ArrayList<>();
 
@@ -54,7 +55,7 @@ public class DashboardFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         request();
-        MyAdapter adapter = new MyAdapter();
+         adapter = new MyAdapter(data);
         recyclerView.setAdapter(adapter);
         dataArr[13] = "英语";
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
@@ -99,19 +100,19 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Course>> call, Response<List<Course>> response) {
 
+                System.out.println("body-size"+response.body().size());
+
 
                 for (Course course:response.body()){
                     data.add(course);
-                    dataArr[12] = course.getCategoryId();
+                    dataArr[8] = course.getCategoryId();
                 }
-
 
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
                 System.out.println(df.format(new Date()));
                 System.out.println(data.size());
-
+                adapter.refresh();
             }
-
 
             //请求失败时候的回调
             @Override
@@ -122,6 +123,11 @@ public class DashboardFragment extends Fragment {
     }
 
     public class MyAdapter extends RecyclerView.Adapter{
+        private List<Course> courses;
+
+        public MyAdapter(List<Course> courses){
+            this.courses = courses;
+        }
 
 
         @NonNull
@@ -136,15 +142,19 @@ public class DashboardFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-            ((MyViewHolder) holder).textView.setText(dataArr[position]);
-            ((MyViewHolder) holder).timestamp.setText(dataArr[position]+"improve"+position);
+            ((MyViewHolder) holder).textView.setText(data.get(position).getName());
+            ((MyViewHolder) holder).timestamp.setText(data.get(position).getDescription());
         }
 
         @Override
         public int getItemCount() {
-            return dataArr.length;
+            return data.size();
         }
 
+        public void refresh(){
+            //这个方法是我们自己手写的，主要是对适配器的一个刷新
+            notifyDataSetChanged();
+        }
 
         private class MyViewHolder extends RecyclerView.ViewHolder {
 

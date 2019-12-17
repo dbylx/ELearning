@@ -1,7 +1,9 @@
 package com.elearing.api;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,7 +26,6 @@ public class GetRequest {
 
         return retrofit;
     }
-
 
     public void request() {
 
