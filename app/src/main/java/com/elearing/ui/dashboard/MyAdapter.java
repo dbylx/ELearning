@@ -1,14 +1,22 @@
 package com.elearing.ui.dashboard;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.elearing.R;
+import com.elearing.VideoActivity;
 import com.elearing.api.Course;
 import com.elearing.api.Material;
 import com.elearing.api.Teacher;
@@ -52,6 +60,9 @@ public class MyAdapter extends RecyclerView.Adapter{
             case 2:
                 View itemView2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.showtype2,parent,false);
                 MyViewHolder2 myViewHolder2 = new MyViewHolder2(itemView2);
+
+
+
                 System.out.println("yes");
                 return myViewHolder2;
             case 3:
@@ -66,6 +77,9 @@ public class MyAdapter extends RecyclerView.Adapter{
 
         return null;
     }
+
+
+
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
@@ -94,6 +108,9 @@ public class MyAdapter extends RecyclerView.Adapter{
         });
 
     }
+
+
+
 
 
     //无需关注
@@ -138,10 +155,12 @@ public class MyAdapter extends RecyclerView.Adapter{
 
         private TextView textView;
         private TextView classInformationText;
+        private VideoView videoView;
         public MyViewHolder2(@NonNull View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.classname);
             classInformationText = (TextView) itemView.findViewById(R.id.classInoformation);
+            videoView = (VideoView) itemView.findViewById(R.id.coursevideo);
 
         }
     }

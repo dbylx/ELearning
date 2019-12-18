@@ -40,16 +40,28 @@
                 android:textAlignment="center"
                 android:text="课程信息信息信息信息信息信息课程信息信息信息信息信息信息课程信息信息信息信息信息信息课程信息信息信息信息信息信息课程信息信息信息信息信息信息" />
 
-            <ImageView
-                android:id="@+id/background"
+
+            <VideoView
+                android:id="@+id/coursevideo"
 
                 android:layout_width="match_parent"
+                android:layout_height="69dp"
                 android:layout_gravity="center_vertical"
-
-                android:layout_height="79dp"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/snow" />
+                >
+
+            </VideoView>
+<!--            <ImageView-->
+<!--                android:id="@+id/background"-->
+
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_gravity="center_vertical"-->
+
+<!--                android:layout_height="79dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:scaleType="centerInside"-->
+<!--                android:src="@drawable/snow" />-->
 
 
         </LinearLayout>
@@ -71,7 +83,7 @@
                 android:padding="10dp"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="laoshi" />
+                android:text="teachername" />
 
             <ImageView
                 android:id="@+id/teacherphoto"
@@ -99,7 +111,7 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="dengjirenshu :14ren "
+            android:text="number"
             />
 
         <ImageView
@@ -114,7 +126,7 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="dengjirenshu :14ryuan " />
+            android:text="价格" />
 
 
 

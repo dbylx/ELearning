@@ -17,14 +17,14 @@
 
         android:layout_height="wrap_content"
 
-        android:scaleType="centerInside"
+        android:scaleType="fitXY"
         android:src="@drawable/snow" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="412dp"
         android:layout_height="42dp"
-        android:layout_marginTop="1dp"
+
         android:background="?attr/colorPrimary"
         app:tabTextColor="@color/colorWhite"
         />

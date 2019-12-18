@@ -35,9 +35,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         }else if( position == 1){
             return TeacherFragment.newInstance(2);
         }else if(position == 2){
-            return TeacherFragment.newInstance(3);
+            return MaterialFragment.newInstance(3);
         }
-        return PlaceholderFragment.newInstance(1);
+        return MaterialFragment.newInstance(1);
     }
 
     @Nullable

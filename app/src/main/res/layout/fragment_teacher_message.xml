@@ -6,76 +6,91 @@
     tools:context=".ui.coursemessage.TeacherMessageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TableLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp">
-
-        <TableRow
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="left">
-
-            <TextView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Teacher: Jim"
-                android:textColor="#000000"
-                android:textSize="20dp" />
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/teachername"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="laoshi" />
+
+                <ImageView
+                    android:id="@+id/teacherphoto"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="79dp"
+
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/snow" />
 
 
-        </TableRow>
+            </LinearLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <View
-                android:id="@+id/divider3"
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:background="#000000"/>
 
-            <View
-                android:id="@+id/divider2"
+            <TextView
+                android:id="@+id/teachertelephone"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_weight="1"
+
+                android:text="telethone" />
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-        </TableRow>
-
-        <TableRow
-
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:gravity="left">>
+                android:background="#000000"/>
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:id="@+id/email"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Teacher profile:"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-        </TableRow>
+                android:padding="10dp"
+                android:layout_weight="1"
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:text="email:" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:id="@+id/des"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/teacher"
-                android:textSize="18dp" />
-        </TableRow>
-    </TableLayout>
+                android:padding="10dp"
+                android:layout_weight="1"
+
+                android:text="des:水水水费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费房贷首付士大夫都是浮点数浮点数费事的费事的费事的费事的浮点数费事的费事的浮点数浮点数浮点数水水水水水水水水水水水水水水" />
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
 
 </FrameLayout>
