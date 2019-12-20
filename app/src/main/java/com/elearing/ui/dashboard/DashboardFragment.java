@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -42,7 +43,7 @@ public class DashboardFragment extends Fragment {
     List<Course> dataSet = new ArrayList<>();
     List<Material> materialDataSet = new ArrayList<>();
     List<Teacher> teacherDataSet = new ArrayList<>();
-
+    private  MyAdapter myAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,107 +55,56 @@ public class DashboardFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-
-        MyAdapter myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet);
+        myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet);
+        request();
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(getActivity(), Table3Activity.class);
+
+
+
+
+
+
                 startActivity(intent);
+
             }
         });
         recyclerView.setAdapter(myAdapter);
 
-
-
-        for(int i = 0;i<9;i++){
-            Course s = new Course();
-            s.setName("hello"+i);
-            if(i ==2 ){
-                s.setShowType(2);
-            }
-            else if(i ==3){
-                s.setShowType(3);
-            }else{
-                s.setShowType(1);
-            }
-//
-            dataSet.add(s);
-        }
-
-//        request();
-//        MyAdapter adapter = new MyAdapter();
-//        recyclerView.setAdapter(adapter);
-//        dataArr[13] = "英语";
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-//        System.out.println(df.format(new Date()));
-//        System.out.println("changeToEnglish");
-//        System.out.println(data.size());
-
-//
-//
-////        root.findViewById(R.id.include_lay_1).setOnClickListener(new View.OnClickListener(){
-////
-////            @Override
-////            public void onClick(View view) {
-////                Intent intent = new Intent(getActivity(), Table3Activity.class);
-////                startActivity(intent);
-////            }
-////        });
-////
-////        root.findViewById(R.id.include_lay_2).setOnClickListener(new View.OnClickListener(){
-////
-////            @Override
-////            public void onClick(View view) {
-////                Intent intent = new Intent(getActivity(), Table3Activity.class);
-////                startActivity(intent);
-////            }
-////        });
-//
-//
         return root;
     }
 
-//    private void request(){
-//        Retrofit retrofit = GetRequest.getApiClient();
-//
-//        // 创建 网络请求接口 的实例
-//        GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
-//
-//        //对 发送请求 进行封装
-//        Call<List<Course>> call = request.getCourses();
-//
-//        call.enqueue(new Callback<List<Course>>() {
-//            @Override
-//            public void onResponse(Call<List<Course>> call, Response<List<Course>> response) {
-//
-//
-//                for (Course course:response.body()){
-//                    data.add(course);
-//                    dataArr[12] = course.getCategoryId();
-//                }
-//
-//
-//                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-//                System.out.println(df.format(new Date()));
-//                System.out.println(data.size());
-//
-//            }
-//
-//
-//            //请求失败时候的回调
-//            @Override
-//            public void onFailure(Call<List<Course>> call, Throwable throwable) {
-//                //提示失败
-//            }
-//        });
-//    }
+    private void request(){
+        Retrofit retrofit = GetRequest.getApiClient();
+
+        // 创建 网络请求接口 的实例
+        GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
+
+        //对 发送请求 进行封装
+        Call<List<Course>> call = request.getCourses();
+
+        call.enqueue(new Callback<List<Course>>() {
+            @Override
+            public void onResponse(Call<List<Course>> call, Response<List<Course>> response) {
+                    List<Course> courses = response.body();
+                    for (Course course:courses) {
+                        dataSet.add(course);
+                    }
+                    myAdapter.refresh(dataSet);
+            }
 
 
-
-
-
-
+            //请求失败时候的回调
+            @Override
+            public void onFailure(Call<List<Course>> call, Throwable throwable) {
+                //提示失败
+                Toast toast=Toast.makeText(getContext(),"Toast提示消息",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+    }
 
 }
 

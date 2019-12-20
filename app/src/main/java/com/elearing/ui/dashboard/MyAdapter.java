@@ -79,7 +79,11 @@ public class MyAdapter extends RecyclerView.Adapter{
     }
 
 
-
+    public void refresh(List<Course> dataSet){
+        //这个方法是我们自己手写的，主要是对适配器的一个刷新
+        notifyDataSetChanged();
+        this.dataSet = dataSet;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
