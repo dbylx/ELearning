@@ -1,6 +1,7 @@
 package com.elearing.ui.tableAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.elearing.R;
+import com.elearing.api.Teacher;
+
+import java.util.List;
 
 ///**
 // * A simple {@link Fragment} subclass.
@@ -51,6 +55,20 @@ public class TeacherFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_teacher_message, container, false);
+        TextView teacherName = root.findViewById(R.id.teachername);
+        TextView telephone = root.findViewById(R.id.teachertelephone);
+        TextView email = root.findViewById(R.id.email);
+        TextView description = root.findViewById(R.id.des);
+
+        Intent intent = getActivity().getIntent();
+        List<Teacher> teachers = (List<Teacher>) intent.getSerializableExtra("teachers");
+        if(teachers!=null){
+            teacherName.setText(teachers.get(0).getName());
+            telephone.setText(teachers.get(0).getTelephone());
+            email.setText(teachers.get(0).getEmail());
+            description.setText(teachers.get(0).getDescription());
+        }
+
 
         return root;
     }

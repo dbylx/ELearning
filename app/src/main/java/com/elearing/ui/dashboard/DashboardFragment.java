@@ -22,7 +22,9 @@ import com.elearing.api.GetRequest;
 import com.elearing.api.GetRequest_Interface;
 import com.elearing.api.Material;
 import com.elearing.api.Teacher;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,6 +46,7 @@ public class DashboardFragment extends Fragment {
     List<Material> materialDataSet = new ArrayList<>();
     List<Teacher> teacherDataSet = new ArrayList<>();
     private  MyAdapter myAdapter;
+    private int process = 0;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,14 +64,11 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(getActivity(), Table3Activity.class);
-
-
-
-
-
-
-                startActivity(intent);
-
+                intent.putExtra("course",new Gson().toJson(dataSet.get(position)));
+                System.out.println(dataSet.get(position).getId());
+                getTeacher(dataSet.get(position).getId(),intent);
+                getMaterial(dataSet.get(position).getId(),intent);
+                intent.putExtra("courses",(Serializable)dataSet);
             }
         });
         recyclerView.setAdapter(myAdapter);
@@ -76,11 +76,63 @@ public class DashboardFragment extends Fragment {
         return root;
     }
 
+    private void getTeacher(String courseId,final Intent intent){
+        Retrofit retrofit = GetRequest.getApiClient();
+        // 创建 网络请求接口 的实例
+
+        final GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
+
+        Call<List<Teacher>> call = request.getCourseTeacher(courseId);
+
+        call.enqueue(new Callback<List<Teacher>>() {
+            @Override
+            public void onResponse(Call<List<Teacher>> call, Response<List<Teacher>> response) {
+                System.out.println(response.body().size());
+                intent.putExtra("teachers",(Serializable)response.body());
+                process++;
+                if(process==2)
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<List<Teacher>> call, Throwable t) {
+                Toast toast=Toast.makeText(getContext(),"Toast提示消息",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+    }
+
+    private void getMaterial(String courseId,final Intent intent){
+        Retrofit retrofit = GetRequest.getApiClient();
+
+        // 创建 网络请求接口 的实例
+        final GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
+
+        Call<List<Material>> call = request.getCourseMaterial(courseId);
+
+        call.enqueue(new Callback<List<Material>>() {
+            @Override
+            public void onResponse(Call<List<Material>> call, Response<List<Material>> response) {
+                intent.putExtra("materials",(Serializable)response.body());
+                process++;
+                if(process==2)
+                    startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<List<Material>> call, Throwable t) {
+                Toast toast=Toast.makeText(getContext(),"Toast提示消息",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+    }
+
     private void request(){
         Retrofit retrofit = GetRequest.getApiClient();
 
         // 创建 网络请求接口 的实例
-        GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
+        final GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
 
         //对 发送请求 进行封装
         Call<List<Course>> call = request.getCourses();

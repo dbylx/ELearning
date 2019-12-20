@@ -1,8 +1,12 @@
 package com.elearing.api;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Course  {
+public class Course implements Serializable {
 
 	private String id;
 	private String name;
@@ -22,8 +26,6 @@ public class Course  {
 	private String certificationDuration;
 
 	private int showType = 1;
-
-
 
 	public String getId() {
 		return id;
@@ -160,4 +162,5 @@ public class Course  {
 	public void setShowType(int showType) {
 		this.showType = showType;
 	}
+
 }

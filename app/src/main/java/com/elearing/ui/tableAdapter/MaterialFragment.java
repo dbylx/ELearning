@@ -1,15 +1,20 @@
 package com.elearing.ui.tableAdapter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.elearing.R;
+import com.elearing.api.Material;
+
+import java.util.List;
 
 ///**
 // * A simple {@link Fragment} subclass.
@@ -45,6 +50,15 @@ public class MaterialFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_material_message, container, false);
+        TextView materialUrl = root.findViewById(R.id.materialURL);
+        TextView resource = root.findViewById(R.id.res);
+        Intent intent = getActivity().getIntent();
+        List<Material> materials = (List<Material>) intent.getSerializableExtra("materials");
+
+        if(materials!=null){
+            materialUrl.setText(materials.get(0).getMaterialUrl());
+            resource.setText(materials.get(0).getDescription());
+        }
 
         return root;
     }

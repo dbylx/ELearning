@@ -1,5 +1,6 @@
 package com.elearing.ui.tableAdapter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.elearing.R;
+import com.elearing.api.Course;
+import com.google.gson.Gson;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -47,6 +50,23 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_course_message, container, false);
+        Intent intent = getActivity().getIntent();
+        intent.getStringExtra("course");
+        String courseJson = intent.getStringExtra("course");
+        Course course = new Gson().fromJson(courseJson,Course.class);
+        TextView courseName = root.findViewById(R.id.courseName);
+        TextView coursePrice = root.findViewById(R.id.coursePrice);
+        TextView status = root.findViewById(R.id.status);
+        TextView openDate = root.findViewById(R.id.openDate);
+        TextView lastUpdate = root.findViewById(R.id.lastUpdate);
+        TextView shareUrl = root.findViewById(R.id.sharedURL);
+
+        courseName.setText(course.getName());
+        coursePrice.setText(course.getPrice());
+        status.setText(course.getStatus());
+        openDate.setText(course.getOpenDate().toString());
+        lastUpdate.setText(course.getLastUpdateOn().toString());
+        shareUrl.setText(course.getSharedUrl());
 
         return root;
     }
