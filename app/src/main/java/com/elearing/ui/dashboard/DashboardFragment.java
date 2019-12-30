@@ -58,7 +58,7 @@ public class DashboardFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet,this.getActivity().getApplicationContext());
+        myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet,this.getActivity());
 
         new Thread(new Runnable() {
             @Override
@@ -165,8 +165,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Course>> call, Throwable throwable) {
                 //提示失败
-                Toast toast=Toast.makeText(getContext(),"Toast提示消息",Toast.LENGTH_SHORT);
-                toast.show();
+
             }
         });
     }

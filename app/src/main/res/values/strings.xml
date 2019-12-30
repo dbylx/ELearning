@@ -14,7 +14,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_table3">table3Activity</string>
 
-    <string name="facebook_app_id">715841108907637</string> <string name="fb_login_protocol_scheme">fb715841108907637</string>
+    <string name="facebook_app_id">715841108907637</string>
+    <string name="fb_login_protocol_scheme">fb715841108907637</string>
     <string name="teacher">Bachelor degree, senior teacher of primary school language. She has been engaged in education for 21 years and has always worked as a language teacher and class teacher. He has won the honorary title of “Excellent Class Teacher” in Yiyang City, and has been awarded “Excellent Teacher” and “Advanced Moral Education Worker” by the school.
     </string>
 
