@@ -58,16 +58,29 @@ public class DashboardFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet);
-        request();
+        myAdapter = new MyAdapter(dataSet,materialDataSet,teacherDataSet,this.getActivity().getApplicationContext());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                request();
+            }
+        }).start();
+
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View v, int position) {
-                Intent intent = new Intent(getActivity(), Table3Activity.class);
+            public void onItemClick(View v, final int position) {
+                final Intent intent = new Intent(getActivity(), Table3Activity.class);
                 intent.putExtra("course",new Gson().toJson(dataSet.get(position)));
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        getTeacher(dataSet.get(position).getId(),intent);
+                        getMaterial(dataSet.get(position).getId(),intent);
+                    }
+                }).start();
                 System.out.println(dataSet.get(position).getId());
-                getTeacher(dataSet.get(position).getId(),intent);
-                getMaterial(dataSet.get(position).getId(),intent);
+
                 intent.putExtra("courses",(Serializable)dataSet);
             }
         });

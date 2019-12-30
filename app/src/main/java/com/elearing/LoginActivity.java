@@ -10,11 +10,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elearing.api.DatabaseHelper;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView username;
     private TextView password;
     private DatabaseHelper db;
+    private CallbackManager callbackManager;
+    private LoginButton loginButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +32,49 @@ public class LoginActivity extends AppCompatActivity {
 
         username = (TextView) findViewById(R.id.email);
         password = (TextView) findViewById(R.id.password);
+
+
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions("email");
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        // App code
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
         db=new DatabaseHelper(this.getApplicationContext(),"",null,1);
         final Button loginButton = (Button) findViewById(R.id.sign_in);
 
@@ -38,5 +91,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
