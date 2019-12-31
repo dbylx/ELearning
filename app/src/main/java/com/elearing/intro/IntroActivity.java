@@ -194,8 +194,6 @@ public class IntroActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isIntroOpnend",true);
         editor.commit();
-
-
     }
 
     // show the GETSTARTED Button and hide the indicator and the next button
@@ -208,8 +206,5 @@ public class IntroActivity extends AppCompatActivity {
         // TODO : ADD an animation the getstarted button
         // setup animation
         btnGetStarted.setAnimation(btnAnim);
-
-
-
     }
 }
