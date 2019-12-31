@@ -10,11 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elearing.api.DatabaseHelper;
+import com.elearing.room.UserApi;
+import com.elearing.room.databasse.UserDatabase;
+import com.elearing.room.entity.User;
 
 public class RegisterActivity extends AppCompatActivity {
     private DatabaseHelper db;
     private TextView username;
     private TextView password;
+    private UserDatabase userDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +30,18 @@ public class RegisterActivity extends AppCompatActivity {
         password = (TextView) findViewById(R.id.password);
 
         db=new DatabaseHelper(this.getApplicationContext(),"",null,1);
+
+        userDatabase = UserApi.getInstance(getApplicationContext());
+
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(db.insert(username.getText().toString(),password.getText().toString())){
+                if(userDatabase.userDao().usernameExist(username.getText().toString())==null){
+                    User user = new User();
+                    user.username = username.getText().toString();
+                    user.password = password.getText().toString();
+                    userDatabase.userDao().register(user);
                     Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                     startActivity(intent);
                 }else{

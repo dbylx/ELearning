@@ -9,13 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public DatabaseHelper(@Nullable Context context,String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, "user.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table user (username text primary key,password text)");
+        sqLiteDatabase.execSQL("create table user (username text primary key not null,password text)");
     }
 
     @Override

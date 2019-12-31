@@ -1,6 +1,7 @@
 package com.elearing;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elearing.api.DatabaseHelper;
+import com.elearing.room.UserApi;
+import com.elearing.room.databasse.UserDatabase;
+import com.elearing.room.entity.User;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -23,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseHelper db;
     private CallbackManager callbackManager;
     private LoginButton loginButton;
+    private UserDatabase userDatabase;
 
 
     @Override
@@ -78,10 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         db=new DatabaseHelper(this.getApplicationContext(),"",null,1);
         final Button loginButton = (Button) findViewById(R.id.sign_in);
 
+
+        userDatabase = UserApi.getInstance(getApplicationContext());
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(db.login(username.getText().toString(),password.getText().toString())){
+               if(userDatabase.userDao().login(username.getText().toString(),password.getText().toString())!=null){
                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                    startActivity(intent);
                }else{
