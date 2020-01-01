@@ -1,6 +1,7 @@
 package com.elearing.ui.home;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.elearing.api.Material;
 import com.elearing.api.Teacher;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter222 extends RecyclerView.Adapter{
@@ -27,6 +29,14 @@ public class MyAdapter222 extends RecyclerView.Adapter{
 
     public MyAdapter222(Context context){
         this.context = context;
+        list = new ArrayList<>();
+        list.add("语文");
+        list.add("数学");
+        list.add("英语");
+        list.add("物理");
+        list.add("化学");
+        list.add("生物");
+        list.add("地理");
 
     }
 
@@ -48,7 +58,7 @@ public class MyAdapter222 extends RecyclerView.Adapter{
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //            System.out.println(dataSet.size());
 
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.showtype1,parent,false);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.course,parent,false);
             MyViewHolder myViewHolder = new MyViewHolder(itemView);
             return myViewHolder;
 
@@ -58,15 +68,38 @@ public class MyAdapter222 extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
-//        ((MyViewHolder) holder).textView.setText(list.get(position).getName());
-//        ((MyViewHolder) holder).classInformationText.setText(dataSet.get(position).getName() + "improve" + position);
-////        holder.itemView.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                onItemClickListener.onItemClick(v,position);
-//            }
-//        });
+        ((MyViewHolder) holder).textView.setText(list.get(position));
+        switch (position){
+            case 0:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.yw));
+                break;
+            case 1:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.sx));
+                break;
+            case 2:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.yy));
+                break;
+            case 3:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.wl));
+                break;
+            case 4:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.hx));
+                break;
+            case 5:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.sw));
+                break;
+            case 6:
+                ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.dili));
+                break;
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onItemClick(v,position);
+            }
+        });
+
 
     }
 
@@ -77,8 +110,9 @@ public class MyAdapter222 extends RecyclerView.Adapter{
     //无需关注
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
+
 
 
 
@@ -89,9 +123,9 @@ public class MyAdapter222 extends RecyclerView.Adapter{
         private ImageView view;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.classname);
-            classInformationText = (TextView) itemView.findViewById(R.id.classInoformation);
-            view = (ImageView)itemView.findViewById(R.id.background);
+            textView = (TextView) itemView.findViewById(R.id.profile_name);
+            classInformationText = (TextView) itemView.findViewById(R.id.timestamp);
+            view = (ImageView)itemView.findViewById(R.id.profile_picture);
         }
     }
 

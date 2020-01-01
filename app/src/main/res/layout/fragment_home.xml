@@ -16,11 +16,12 @@
 
         <LinearLayout
             android:layout_width="401dp"
-            android:layout_height="86dp">
+            android:layout_height="86dp"
+            android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="41dp"
+                android:layout_width="37dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
@@ -28,7 +29,7 @@
 
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="280dp"
+                android:layout_width="260dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
@@ -38,11 +39,13 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
+                android:scaleType="centerInside"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/search" />
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ss" />
 
         </LinearLayout>
 
@@ -138,7 +141,14 @@
                         </LinearLayout>
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="21dp"
+                    android:text=" 热门应用">
 
+                </androidx.appcompat.widget.AppCompatTextView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -181,14 +191,23 @@
                         android:layout_height="60dp"
                         android:background="@drawable/p4"></ImageView>
 
+
+
                 </LinearLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="21dp"
+                    android:text=" 精品课程">
+
+                </androidx.appcompat.widget.AppCompatTextView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/courseRecycle_main"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-<!--                <ImageView-->
+                    android:layout_height="600dp" />
+                <!--                <ImageView-->
 <!--                    android:id="@+id/imageView5"-->
 
 <!--                    android:layout_width="match_parent"-->

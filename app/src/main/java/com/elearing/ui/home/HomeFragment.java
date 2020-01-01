@@ -1,5 +1,6 @@
 package com.elearing.ui.home;
 
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -64,6 +67,7 @@ public class HomeFragment extends Fragment {
     public ImageView v2;
     public ImageView v3;
     public ImageView v4;
+    public ImageButton b;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -78,6 +82,27 @@ public class HomeFragment extends Fragment {
         v2 = root.findViewById(R.id.p2);
         v3 = root.findViewById(R.id.p3);
         v4 = root.findViewById(R.id.p4);
+        b = root.findViewById(R.id.imageButton);
+        b.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Log.v("e","d");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment, new DashboardFragment())
+
+                        .commit();
+            }
+        });
+
+        v1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //分享
+            }
+        });
 
 
         v3.setOnClickListener(new View.OnClickListener(){
@@ -162,7 +187,14 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         myAdapter = new MyAdapter222(this.getActivity());
-//        recyclerView.setAdapter(myAdapter);
+        myAdapter.setOnItemClickListener(new MyAdapter222.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View v, int position) {
+               Log.v("get",String.valueOf(position));
+            }
+        });
+        recyclerView.setAdapter(myAdapter);
 
         return root;
     }
