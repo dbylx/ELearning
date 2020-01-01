@@ -63,12 +63,11 @@ public class TeacherFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         List<Teacher> teachers = (List<Teacher>) intent.getSerializableExtra("teachers");
         if(teachers!=null){
-            teacherName.setText(teachers.get(0).getName());
-            telephone.setText(teachers.get(0).getTelephone());
-            email.setText(teachers.get(0).getEmail());
-            description.setText(teachers.get(0).getDescription());
+            teacherName.setText("TeacherName："+teachers.get(0).getName());
+            telephone.setText("Telephone"+teachers.get(0).getTelephone());
+            email.setText("Email:"+teachers.get(0).getEmail());
+            description.setText("Description"+teachers.get(0).getDescription());
         }
-
 
         return root;
     }

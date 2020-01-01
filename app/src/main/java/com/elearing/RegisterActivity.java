@@ -33,6 +33,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         userDatabase = UserApi.getInstance(getApplicationContext());
 
+        TextView sign_in = findViewById(R.id.sign_in_text);
+
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,17 +15,17 @@
             android:orientation="vertical">
 
 
-
-
             <TextView
                 android:id="@+id/materialURL"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="materialURL" />
+                android:padding="10dp"
+                android:text="materialURL"
+                android:textStyle="bold" />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -33,13 +33,15 @@
 
             <TextView
                 android:id="@+id/res"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="res" />
+                android:padding="10dp"
+                android:text="res"
+                android:textStyle="bold" />
 
 
 

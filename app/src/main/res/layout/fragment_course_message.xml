@@ -15,95 +15,106 @@
             android:orientation="vertical">
 
 
-
-
             <TextView
                 android:id="@+id/courseName"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
+                android:padding="10dp"
+                android:text="courseName"
+                android:textStyle="bold" />
 
-                android:text="courseName" />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
 
             <TextView
                 android:id="@+id/coursePrice"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-
-                android:text="coursePrice:" />
+                android:fontFamily="@font/calibri"
+                android:padding="10dp"
+                android:text="coursePrice:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
 
             <TextView
                 android:id="@+id/status"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="status:" />
+                android:padding="10dp"
+                android:text="status:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
+
             <TextView
                 android:id="@+id/openDate"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="openDate:" />
+                android:padding="10dp"
+                android:text="openDate:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
+
             <TextView
                 android:id="@+id/lastUpdate"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="lastUpdate:" />
+                android:padding="10dp"
+                android:text="lastUpdate:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
 
 
             <TextView
                 android:id="@+id/sharedURL"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="sharedURL:" />
+                android:padding="10dp"
+                android:text="sharedURL:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"/>
+                android:background="#4c84ff" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

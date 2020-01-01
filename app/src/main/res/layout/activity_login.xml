@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="44dp"
-                android:src="@drawable/kdemy_logo" />
+                android:src="@drawable/drxx18" />
 
             <EditText
                 android:id="@+id/email"
@@ -109,7 +109,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/sign_up"
+                        android:id="@+id/sign_up_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"

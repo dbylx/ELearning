@@ -61,13 +61,12 @@ public class PlaceholderFragment extends Fragment {
         TextView lastUpdate = root.findViewById(R.id.lastUpdate);
         TextView shareUrl = root.findViewById(R.id.sharedURL);
 
-        courseName.setText(course.getName());
-        coursePrice.setText(course.getPrice());
-        status.setText(course.getStatus());
-        openDate.setText(course.getOpenDate().toString());
-        lastUpdate.setText(course.getLastUpdateOn().toString());
-        shareUrl.setText(course.getSharedUrl());
-
+        courseName.setText("CourseName:"+course.getName());
+        coursePrice.setText("Price:"+course.getPrice());
+        status.setText("Status:"+course.getStatus());
+        openDate.setText("OpenDate:"+course.getOpenDate().toString());
+        lastUpdate.setText("LastUpdate:"+course.getLastUpdateOn().toString());
+        shareUrl.setText("Url:"+course.getSharedUrl());
         return root;
     }
 }

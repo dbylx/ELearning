@@ -56,8 +56,8 @@ public class MaterialFragment extends Fragment {
         List<Material> materials = (List<Material>) intent.getSerializableExtra("materials");
 
         if(materials!=null){
-            materialUrl.setText(materials.get(0).getMaterialUrl());
-            resource.setText(materials.get(0).getDescription());
+            materialUrl.setText("MaterialUrl:"+materials.get(0).getMaterialUrl());
+            resource.setText("Description:"+materials.get(0).getDescription());
         }
 
         return root;

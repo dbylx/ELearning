@@ -4,10 +4,10 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 import com.elearing.catchPackage.dao.CourseMessageDao;
-import com.elearing.catchPackage.entity.CourseMessage;
+import com.elearing.catchPackage.entity.Course;
 
 
-@Database(entities = {CourseMessage.class},version = 1,exportSchema = false)
+@Database(entities = {Course.class},version = 1,exportSchema = false)
 public abstract class CourseMessagedb extends RoomDatabase {
     public abstract CourseMessageDao getCourseMessageDao();
 }

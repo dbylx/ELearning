@@ -3,7 +3,9 @@ package com.elearing;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -83,19 +85,36 @@ public class LoginActivity extends AppCompatActivity {
         db=new DatabaseHelper(this.getApplicationContext(),"",null,1);
         final Button loginButton = (Button) findViewById(R.id.sign_in);
 
+        TextView sign_up = findViewById(R.id.sign_up_text);
+
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         userDatabase = UserApi.getInstance(getApplicationContext());
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(userDatabase.userDao().login(username.getText().toString(),password.getText().toString())!=null){
-                   Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                   startActivity(intent);
-               }else{
-                   Toast toast=Toast.makeText(getApplicationContext(),"账号或密码错误",Toast.LENGTH_SHORT);
-                   toast.show();
-               }
+                SharedPreferences sharedPreferences = getSharedPreferences("login_message", Context.MODE_PRIVATE);
+                if(sharedPreferences.getBoolean("login",false)){
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                }else {
+                    if (userDatabase.userDao().login(username.getText().toString(), password.getText().toString()) != null) {
+
+                        sharedPreferences.edit().putBoolean("login", true);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "账号或密码错误", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
             }
         });
 

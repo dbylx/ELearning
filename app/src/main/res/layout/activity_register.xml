@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="44dp"
-                android:src="@drawable/kdemy_logo" />
+                android:src="@drawable/drxx18" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/red_rounded_solid"
+                android:background="@color/com_facebook_button_background_color"
                 android:fontFamily="@font/calibri"
                 android:text="Sign Up"
                 android:textAllCaps="false"
@@ -114,7 +114,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/sign_in"
+                        android:id="@+id/sign_in_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"

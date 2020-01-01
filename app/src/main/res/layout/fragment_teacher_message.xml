@@ -21,13 +21,14 @@
 
                 <TextView
                     android:id="@+id/teachername"
-                    android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="laoshi"
                     android:textAlignment="center"
-                    android:text="laoshi" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/teacherphoto"
@@ -50,13 +51,15 @@
 
             <TextView
                 android:id="@+id/teachertelephone"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="telethone" />
+                android:padding="10dp"
+                android:text="telethone"
+                android:textStyle="bold" />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -64,13 +67,15 @@
 
             <TextView
                 android:id="@+id/email"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="email:" />
+                android:padding="10dp"
+                android:text="email:"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -79,13 +84,15 @@
 
             <TextView
                 android:id="@+id/des"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:fontFamily="@font/calibri"
 
-                android:text="des:水水水费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费房贷首付士大夫都是浮点数浮点数费事的费事的费事的费事的浮点数费事的费事的浮点数浮点数浮点数水水水水水水水水水水水水水水" />
+                android:padding="10dp"
+                android:text="des:水水水费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费房贷首付士大夫都是浮点数浮点数费事的费事的费事的费事的浮点数费事的费事的浮点数浮点数浮点数水水水水水水水水水水水水水水"
+                android:textStyle="bold" />
 
 
 
