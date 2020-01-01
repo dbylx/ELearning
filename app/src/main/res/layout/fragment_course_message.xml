@@ -6,6 +6,10 @@
     tools:context=".ui.coursemessage.TeacherMessageFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20px">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -28,8 +32,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+                android:layout_height="0.1dp"
+                android:background="#000000"/>
 
             <TextView
                 android:id="@+id/coursePrice"
@@ -44,8 +48,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+                android:layout_height="0.1dp"
+                android:background="#000000"/>
 
             <TextView
                 android:id="@+id/status"
@@ -61,8 +65,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+                android:layout_height="0.1dp"
+                android:background="#000000"/>
 
             <TextView
                 android:id="@+id/openDate"
@@ -78,8 +82,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+                android:layout_height="0.1dp"
+                android:background="#000000"/>
 
             <TextView
                 android:id="@+id/lastUpdate"
@@ -95,8 +99,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+                android:layout_height="0.1dp"
+                android:background="#000000" />
 
 
             <TextView
@@ -111,14 +115,12 @@
                 android:text="sharedURL:"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#4c84ff" />
+
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
 
 
 </FrameLayout>

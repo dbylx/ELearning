@@ -6,98 +6,104 @@
     tools:context=".ui.coursemessage.TeacherMessageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.core.widget.NestedScrollView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_height="wrap_content"
+        android:layout_margin="15px">
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/teachername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="laoshi"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/teacherphoto"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="79dp"
+
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/snow" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="#000000"/>
 
                 <TextView
-                    android:id="@+id/teachername"
+                    android:id="@+id/teachertelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:fontFamily="@font/calibri"
+
                     android:padding="10dp"
-                    android:text="laoshi"
-                    android:textAlignment="center"
+                    android:text="telethone"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="#000000"/>
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/calibri"
+
+                    android:padding="10dp"
+                    android:text="email:"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/teacherphoto"
-
                     android:layout_width="match_parent"
-                    android:layout_height="79dp"
+                    android:layout_height="0.1dp"
+                    android:background="#000000"/>
 
+                <TextView
+                    android:id="@+id/des"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/snow" />
+                    android:fontFamily="@font/calibri"
 
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000"/>
-
-            <TextView
-                android:id="@+id/teachertelephone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:fontFamily="@font/calibri"
-
-                android:padding="10dp"
-                android:text="telethone"
-                android:textStyle="bold" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000"/>
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:fontFamily="@font/calibri"
-
-                android:padding="10dp"
-                android:text="email:"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000"/>
-
-            <TextView
-                android:id="@+id/des"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:fontFamily="@font/calibri"
-
-                android:padding="10dp"
-                android:text="des:水水水费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费房贷首付士大夫都是浮点数浮点数费事的费事的费事的费事的浮点数费事的费事的浮点数浮点数浮点数水水水水水水水水水水水水水水"
-                android:textStyle="bold" />
+                    android:padding="10dp"
+                    android:text="des:水水水费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费水水水水水士大夫士大夫但是房贷首付士大夫都是浮点数浮点数费事的费房贷首付士大夫都是浮点数浮点数费事的费事的费事的费事的浮点数费事的费事的浮点数浮点数浮点数水水水水水水水水水水水水水水"
+                    android:textStyle="bold" />
 
 
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
 
 
 </FrameLayout>
