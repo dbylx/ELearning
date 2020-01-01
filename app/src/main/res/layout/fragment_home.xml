@@ -137,6 +137,13 @@
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
 
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/courseRecycle_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
 <!--                <ImageView-->
 <!--                    android:id="@+id/imageView5"-->
 
@@ -144,29 +151,29 @@
 <!--                    android:layout_height="230dp"-->
 <!--                    android:src="@drawable/bg" />-->
 
-                <include
-                    android:id="@+id/include1_lay_2"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_2"-->
+<!--                    layout="@layout/material" />-->
 
-                <include
-                    android:id="@+id/include1_lay_3"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_3"-->
+<!--                    layout="@layout/material" />-->
 
-                <include
-                    android:id="@+id/include1_lay_4"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_4"-->
+<!--                    layout="@layout/material" />-->
 
-                <include
-                    android:id="@+id/include1_lay_2"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_2"-->
+<!--                    layout="@layout/material" />-->
 
-                <include
-                    android:id="@+id/include1_lay_3"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_3"-->
+<!--                    layout="@layout/material" />-->
 
-                <include
-                    android:id="@+id/include1_lay_4"
-                    layout="@layout/material" />
+<!--                <include-->
+<!--                    android:id="@+id/include1_lay_4"-->
+<!--                    layout="@layout/material" />-->
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

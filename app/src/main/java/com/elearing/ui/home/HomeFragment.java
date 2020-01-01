@@ -1,6 +1,11 @@
 package com.elearing.ui.home;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 
 //滑动窗口
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -32,14 +38,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.elearing.R;
+import com.elearing.Table3Activity;
+import com.elearing.new_board.myBoardCast;
+import com.elearing.ui.dashboard.MyAdapter;
+import com.google.gson.Gson;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+
+    public RecyclerView recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -184,6 +200,10 @@ public class HomeFragment extends Fragment {
                 2,
                 2,
                 TimeUnit.SECONDS);
+
+
+
+
     }
 
 
@@ -218,5 +238,29 @@ public class HomeFragment extends Fragment {
             scheduledExecutorService = null;
         }
     }
+
+    public void onResume(){
+        super.onResume();
+
+        // 1. 实例化BroadcastReceiver子类 &  IntentFilter
+        myBoardCast mBroadcastReceiver = new myBoardCast();
+        IntentFilter intentFilter = new IntentFilter();
+
+        // 2. 设置接收广播的类型
+        intentFilter.addAction("BROADCAST_ACTION");
+
+        // 3. 动态注册：调用Context的registerReceiver（）方法
+        getActivity().registerReceiver(mBroadcastReceiver, intentFilter);
+
+
+        Intent intent2 = new Intent();
+        intent2.setAction("BROADCAST_ACTION");
+        getActivity().sendBroadcast(intent2);
+        Log.v("err","发送广播");
+
+
+    }
+
+
 
 }
