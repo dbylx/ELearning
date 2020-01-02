@@ -62,7 +62,7 @@
 <!--                android:layout_height="79dp"-->
 <!--                android:layout_weight="1"-->
 <!--                android:scaleType="centerInside"-->
-<!--                android:src="@drawable/snow" />-->
+<!--                android:src="@drawable/snow1" />-->
 
 
         </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
-                android:src="@drawable/snow" />
+                android:src="@drawable/snow1" />
 
 
 

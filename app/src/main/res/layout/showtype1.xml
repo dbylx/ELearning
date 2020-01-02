@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/snow"/>
+            android:src="@drawable/snow1"/>
 
         <TextView
             android:id="@+id/classInoformation"

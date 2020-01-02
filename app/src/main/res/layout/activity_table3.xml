@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
 
         android:scaleType="fitXY"
-        android:src="@drawable/snow" />
+        android:src="@drawable/snow1" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout

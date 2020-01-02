@@ -44,7 +44,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:scaleType="centerInside"
-                        android:src="@drawable/snow" />
+                        android:src="@drawable/snow1" />
 
 
                 </LinearLayout>

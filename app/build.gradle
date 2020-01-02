@@ -102,7 +102,12 @@ dependencies {
     // room 配合 RxJava
     implementation "android.arch.persistence.room:rxjava2:1.1.1"
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
-
     androidTestImplementation 'com.android.support.test:runner:latest.version'
     androidTestImplementation 'com.android.support.test:rules:latest.version'
+    androidTestImplementation 'com.21buttons:fragment-test-rule:1.0.0'
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:2.0') {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
 }

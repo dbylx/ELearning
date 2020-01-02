@@ -141,9 +141,9 @@ public class MyAdapter extends RecyclerView.Adapter implements ItemMoveListener 
                 TextView teacherName = ((MyViewHolder2) holder).itemView.findViewById(R.id.teachername);
                 TextView number = ((MyViewHolder2) holder).itemView.findViewById(R.id.number);
                 TextView price = ((MyViewHolder2) holder).itemView.findViewById(R.id.price);
-
+                String url = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
                 VideoView vv = ((MyViewHolder2) holder).videoView;
-                Uri uri = Uri.parse("android.resource://" + context.getPackageName() + "/raw/" +R.raw.test);
+                Uri uri = Uri.parse(url);
                 vv.setVideoURI(uri);
                 vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
                 vv.start();
