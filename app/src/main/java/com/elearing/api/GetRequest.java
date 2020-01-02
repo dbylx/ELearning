@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GetRequest {
-    public static final String BASE_URL = "http://192.168.0.124:8080/elearn/";
+    public static final String BASE_URL = "http://192.168.0.135:8080/elearn/";
     public static Retrofit retrofit;
 
     public static Retrofit getApiClient(){

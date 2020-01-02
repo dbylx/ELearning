@@ -26,6 +26,7 @@ public class shipinjiemian extends AppCompatActivity {
     List<String> list;
     List<String> detailList;
     private VideoView videoView ;
+    String videoUrl2;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,31 +58,38 @@ public class shipinjiemian extends AppCompatActivity {
 
         switch (who){
             case 0:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.yw));
                 break;
             case 1:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.sx));
                 break;
             case 2:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.yy));
                 break;
             case 3:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.dili;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.wl));
                 break;
             case 4:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.hx));
                 break;
             case 5:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.sw));
                 break;
             case 6:
+                videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.dili;
                 ((ImageView)findViewById(R.id.profile_picture)).setImageDrawable(this.getResources().getDrawable(R.drawable.dili));
                 break;
         }
         
         
         //网络视频
-        String videoUrl2  = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
+
         Log.v("content",videoUrl2);
 
         Uri uri = Uri.parse( videoUrl2 );

@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,8 @@ import com.elearing.api.Material;
 import com.elearing.api.Teacher;
 import com.elearing.catchPackage.CourseMessageApi;
 import com.elearing.catchPackage.dao.CourseMessageDao;
+import com.elearing.ui.home.ItemDragListener;
+import com.elearing.ui.home.MyItemTouchHelperCallback;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -34,8 +37,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class DashboardFragment extends Fragment {
-
+public class DashboardFragment extends Fragment implements ItemDragListener {
+    ItemTouchHelper mItemTouchHelper;
     private DashboardViewModel dashboardViewModel;
     RecyclerView recyclerView;
     //    String[] dataArr = {"语文","数学","语文","数学","语文","数学","语文","数学","语文","数学","语文","数学","语文","数学"};
@@ -125,6 +128,12 @@ public class DashboardFragment extends Fragment {
             }
         });
         recyclerView.setAdapter(myAdapter);
+        MyItemTouchHelperCallback mCallback = new MyItemTouchHelperCallback(myAdapter);
+        mItemTouchHelper = new ItemTouchHelper(mCallback);
+
+        mItemTouchHelper.attachToRecyclerView(recyclerView);
+
+
 
         return root;
     }
@@ -251,6 +260,10 @@ public class DashboardFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onStartDrags(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }
 
 

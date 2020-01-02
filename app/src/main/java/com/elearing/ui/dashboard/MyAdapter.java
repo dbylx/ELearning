@@ -27,11 +27,13 @@ import com.elearing.api.Course;
 import com.elearing.api.GetRequest;
 import com.elearing.api.Material;
 import com.elearing.api.Teacher;
+import com.elearing.ui.home.ItemMoveListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.Collections;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter{
+public class MyAdapter extends RecyclerView.Adapter implements ItemMoveListener {
     List<Course> dataSet ;
     List<Material> materialDataSet;
     List<Teacher> teacherDataSet ;
@@ -51,6 +53,28 @@ public class MyAdapter extends RecyclerView.Adapter{
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
+
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        //1、交换数据
+        Collections.swap(dataSet, fromPosition, toPosition);
+//        Collections.swap(detailList, fromPosition, toPosition);
+//        //2、刷新
+        notifyItemMoved(fromPosition, toPosition);
+        return true;
+    }
+
+    @Override
+    public boolean onItemRemove(int position) {
+        //1、删除数据
+        dataSet.remove(position);
+//        materialDataSet.remove(position);
+//        teacherDataSet.remove(position);
+        //2、刷新
+        notifyItemRemoved(position);
+        return true;
+    }
+
 
     //回调接口
     public interface OnItemClickListener {
@@ -119,7 +143,7 @@ public class MyAdapter extends RecyclerView.Adapter{
                 TextView price = ((MyViewHolder2) holder).itemView.findViewById(R.id.price);
 
                 VideoView vv = ((MyViewHolder2) holder).videoView;
-                Uri uri = Uri.parse("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+                Uri uri = Uri.parse("android.resource://" + context.getPackageName() + "/raw/" +R.raw.test);
                 vv.setVideoURI(uri);
                 vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
                 vv.start();

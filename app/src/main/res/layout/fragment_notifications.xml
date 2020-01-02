@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="52dp"
-                android:background="@drawable/textview_border"
+
                 android:text="个性签名"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"

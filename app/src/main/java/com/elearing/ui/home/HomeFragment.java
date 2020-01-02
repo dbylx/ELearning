@@ -227,19 +227,19 @@ public class HomeFragment extends Fragment implements ItemDragListener {
     private int oldPosition = 0;
     //存放图片的id
     private int[] imageIds = new int[]{
-            R.drawable.abc,
-            R.drawable.abc,
-            R.drawable.abc,
-            R.drawable.abc,
-            R.drawable.abc
+            R.mipmap.gg1,
+            R.mipmap.gg2,
+            R.mipmap.gg3,
+            R.mipmap.gg4,
+            R.mipmap.gg5,
     };
     //存放图片的标题
     private String[]  titles = new String[]{
-            "巩俐不低俗，我就不能低俗",
-            "扑树又回来啦！再唱经典老歌引万人大合唱",
-            "揭秘北京电影如何升级",
-            "乐视网TV版大派送",
-            "热血屌丝的反杀"
+            "学习英语",
+            "坚持自己的梦想加油",
+            "坚持听听力你可以的",
+            "管理好自己的情绪",
+            "新的一年，新的梦想"
     };
     private TextView title;
     private ViewPagerAdapter adapter;

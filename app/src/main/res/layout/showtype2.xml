@@ -45,8 +45,8 @@
             <VideoView
                 android:id="@+id/coursevideo"
 
-                android:layout_width="match_parent"
-                android:layout_height="69dp"
+                android:layout_width="300dp"
+                android:layout_height="110dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:scaleType="centerInside"

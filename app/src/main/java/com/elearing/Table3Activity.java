@@ -53,8 +53,7 @@ public class Table3Activity extends AppCompatActivity {
         imageButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent1 = new Intent(getApplicationContext(), DashboardFragment.class);
-               startActivity(intent1);
+               onBackPressed();
             }
         });
 
