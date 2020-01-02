@@ -10,8 +10,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
-        android:layout_width="419dp"
-        android:layout_height="518dp"
+        android:layout_width="406dp"
+        android:layout_height="588dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tab_indicator"
         app:layout_constraintEnd_toEndOf="parent"
