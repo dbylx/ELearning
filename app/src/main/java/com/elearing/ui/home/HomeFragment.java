@@ -50,6 +50,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.elearing.R;
 import com.elearing.Table3Activity;
 import com.elearing.new_board.myBoardCast;
+import com.elearing.shipinjiemian;
 import com.elearing.ui.dashboard.DashboardFragment;
 import com.elearing.ui.dashboard.MyAdapter;
 import com.elearing.ui.notifications.NotificationsFragment;
@@ -192,7 +193,10 @@ public class HomeFragment extends Fragment implements ItemDragListener {
 
             @Override
             public void onItemClick(View v, int position) {
-               Log.v("get",String.valueOf(position));
+               Intent intent = new Intent(getActivity(), shipinjiemian.class);
+               intent.putExtra("who",position);
+               startActivity(intent);
+
             }
         });
         recyclerView.setAdapter(myAdapter);

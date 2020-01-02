@@ -28,6 +28,7 @@ import java.util.List;
 
 public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListener {
     List<String> list;
+    List<String> detailList;
     Context context;
     private ItemDragListener mItemDragListener;
 
@@ -35,13 +36,21 @@ public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListen
         this.context = context;
         mItemDragListener = itemDragListener;
         list = new ArrayList<>();
+        detailList = new ArrayList<>();
         list.add("语文");
+        detailList.add("语文精品课程");
         list.add("数学");
+        detailList.add("数学精品课程");
         list.add("英语");
+        detailList.add("英语精品课程");
         list.add("物理");
+        detailList.add("物理精品课程");
         list.add("化学");
+        detailList.add("化学精品课程");
         list.add("生物");
+        detailList.add("生物精品课程");
         list.add("地理");
+        detailList.add("地理精品课程");
 
     }
 
@@ -74,22 +83,23 @@ public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListen
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
 
         ((MyViewHolder) holder).textView.setText(list.get(position));
-        int con;
-        if(list.get(position).compareTo("语文") == 0) {
-            con = 0;
-        }else if(list.get(position).compareTo("数学") == 0){
-            con =1;
-        }else if(list.get(position).compareTo("英语") == 0){
-            con =2;
-        }else if(list.get(position).compareTo("物理") == 0){
-            con =3;
-        }else if(list.get(position).compareTo("化学") == 0){
-            con =4;
-        }else if(list.get(position).compareTo("生物") == 0){
-            con =5;
-        }else if(list.get(position).compareTo("地理") == 0){
-            con =6;
-        }
+        ((MyViewHolder) holder).classInformationText.setText(detailList.get(position));
+//        int con;
+//        if(list.get(position).compareTo("语文") == 0) {
+//            con = 0;
+//        }else if(list.get(position).compareTo("数学") == 0){
+//            con =1;
+//        }else if(list.get(position).compareTo("英语") == 0){
+//            con =2;
+//        }else if(list.get(position).compareTo("物理") == 0){
+//            con =3;
+//        }else if(list.get(position).compareTo("化学") == 0){
+//            con =4;
+//        }else if(list.get(position).compareTo("生物") == 0){
+//            con =5;
+//        }else if(list.get(position).compareTo("地理") == 0){
+//            con =6;
+//        }
         switch (position){
             case 0:
                 ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.yw));
@@ -140,8 +150,9 @@ public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListen
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
         //1、交换数据
-        Collections.swap(list, fromPosition, toPosition);
-        //2、刷新
+//        Collections.swap(list, fromPosition, toPosition);
+//        Collections.swap(detailList, fromPosition, toPosition);
+//        //2、刷新
         notifyItemMoved(fromPosition, toPosition);
         return true;
     }
@@ -150,6 +161,7 @@ public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListen
     public boolean onItemRemove(int position) {
         //1、删除数据
         list.remove(position);
+        detailList.remove(position);
         //2、刷新
         notifyItemRemoved(position);
         return true;

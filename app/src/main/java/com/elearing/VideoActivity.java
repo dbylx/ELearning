@@ -19,7 +19,7 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.showtype2);
 
 
-        String videoUrl1 = "K:/123.mp4" ;//Environment.getExternalStorageDirectory().getPath()+
+        String videoUrl1 = "android.resource://" + getPackageName() + "/raw/" +R.raw.test;
 
         //网络视频
         Uri uri = Uri.parse( videoUrl1 );

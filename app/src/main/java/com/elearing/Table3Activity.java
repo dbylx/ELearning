@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.elearing.ui.tableAdapter.SectionsPagerAdapter;
@@ -50,5 +51,8 @@ public class Table3Activity extends AppCompatActivity {
         Intent materialIntent = new Intent(getApplicationContext(), MaterialFragment.class);
         materialIntent.putExtra("materials",(Serializable)materials);
         //System.out.println(course.getName());
+
+
+
     }
 }
