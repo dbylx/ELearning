@@ -100,17 +100,17 @@ public class MyAdapter extends RecyclerView.Adapter{
                 System.out.println("填装数据");
                 ((MyViewHolder) holder).textView.setText(dataSet.get(position).getName());
                 ((MyViewHolder) holder).classInformationText.setText(dataSet.get(position).getName() + "improve" + position);
-                Glide.with(context).load("http://localhost:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
-                        .into((ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background));
+                Glide.with(context).load("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
+                        .into(((MyViewHolder) holder).view);
                 ImageView imageView = (ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background);
                 imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.com_facebook_button_icon));
-                System.out.println("http://172.24.34.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
+                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
                 break;
             case 2:
                 ((MyViewHolder2) holder).textView.setText(dataSet.get(position).getName());
                 ((MyViewHolder2) holder).classInformationText.setText(dataSet.get(position).getName());
-                System.out.println("http://172.24.34.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
-                Picasso.with(context).load("http://172.24.34.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
+                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
+                Picasso.with(context).load("http://172.30.121.158.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
                         .into((ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background));
                 break;
 
@@ -118,8 +118,8 @@ public class MyAdapter extends RecyclerView.Adapter{
                 ((MyViewHolder3) holder).classname.setText(dataSet.get(position).getName());
                 ((MyViewHolder3) holder).classInformationText.setText(dataSet.get(position).getName());
                 System.out.println("yes555");
-                System.out.println("http://172.24.34.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
-                Picasso.with(context).load("http://172.24.34.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
+                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
+                Picasso.with(context).load("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
                         .into((ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background));
                 break;
         }
@@ -167,11 +167,12 @@ public class MyAdapter extends RecyclerView.Adapter{
 
         private TextView textView;
         private TextView classInformationText;
+        private ImageView view;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.classname);
             classInformationText = (TextView) itemView.findViewById(R.id.classInoformation);
-
+            view = (ImageView)itemView.findViewById(R.id.background);
         }
     }
 

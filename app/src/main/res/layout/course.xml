@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/course_layout"
-    android:layout_width="wrap_content"
+    android:id="@+id/cardCourse"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp">
 
     android:orientation="vertical">
-    <ImageView
-        android:id="@+id/profile_picture"
-        android:layout_width="96dp"
-        android:layout_height="83dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/photo1"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/profile_name"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_width="240dp"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        android:text="Listening and Reading"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/timestamp"
-        app:layout_constraintLeft_toRightOf="@+id/profile_picture"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/timestamp"
-        android:layout_width="161dp"
-        android:layout_height="48dp"
-        android:text="English improve course"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/profile_name"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/course_layout"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="24dp"
+
+            android:src="@drawable/photo1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/profile_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="240dp"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:text="Listening and Reading"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/timestamp"
+            app:layout_constraintLeft_toRightOf="@+id/profile_picture"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="161dp"
+            android:layout_height="48dp"
+            android:text="English improve course"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/profile_name"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package com.elearing.ui.home;
 
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -46,7 +49,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.elearing.R;
 import com.elearing.Table3Activity;
 import com.elearing.new_board.myBoardCast;
+import com.elearing.ui.dashboard.DashboardFragment;
 import com.elearing.ui.dashboard.MyAdapter;
+import com.elearing.ui.notifications.NotificationsFragment;
+import com.facebook.appevents.suggestedevents.ViewOnClickListener;
 import com.google.gson.Gson;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
@@ -54,8 +60,14 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    public MyAdapter222 myAdapter;
 
     public RecyclerView recyclerView;
+    public ImageView v1;
+    public ImageView v2;
+    public ImageView v3;
+    public ImageView v4;
+    public ImageButton b;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +77,63 @@ public class HomeFragment extends Fragment {
 
 
         mViewPaper = (ViewPager) root.findViewById(R.id.vp);
+
+        v1 = root.findViewById(R.id.p1);
+        v2 = root.findViewById(R.id.p2);
+        v3 = root.findViewById(R.id.p3);
+        v4 = root.findViewById(R.id.p4);
+        b = root.findViewById(R.id.imageButton);
+        b.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Log.v("e","d");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment, new DashboardFragment())
+
+                        .commit();
+            }
+        });
+
+        v1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //分享
+            }
+        });
+
+
+        v3.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+//                getActivity().onBackPressed();
+                Log.v("e","d");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment, new NotificationsFragment())
+
+                        .commit();
+
+
+            }
+        });
+
+        v4.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Log.v("e","d");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment, new DashboardFragment())
+
+                        .commit();
+
+            }
+        });
 
         //显示的图片
         images = new ArrayList<ImageView>();
@@ -111,6 +180,21 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
+        recyclerView = root.findViewById(R.id.courseRecycle_main);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        myAdapter = new MyAdapter222(this.getActivity());
+        myAdapter.setOnItemClickListener(new MyAdapter222.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View v, int position) {
+               Log.v("get",String.valueOf(position));
+            }
+        });
+        recyclerView.setAdapter(myAdapter);
 
         return root;
     }
@@ -242,21 +326,10 @@ public class HomeFragment extends Fragment {
     public void onResume(){
         super.onResume();
 
-        // 1. 实例化BroadcastReceiver子类 &  IntentFilter
-        myBoardCast mBroadcastReceiver = new myBoardCast();
-        IntentFilter intentFilter = new IntentFilter();
-
-        // 2. 设置接收广播的类型
-        intentFilter.addAction("BROADCAST_ACTION");
-
-        // 3. 动态注册：调用Context的registerReceiver（）方法
-        getActivity().registerReceiver(mBroadcastReceiver, intentFilter);
 
 
-        Intent intent2 = new Intent();
-        intent2.setAction("BROADCAST_ACTION");
-        getActivity().sendBroadcast(intent2);
-        Log.v("err","发送广播");
+
+
 
 
     }
