@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
-
+        final TextView textView = findViewById(R.id.textView8);
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -102,12 +102,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPreferences = getSharedPreferences("login_message", Context.MODE_PRIVATE);
                 if(sharedPreferences.getBoolean("login",false)){
+                    textView.setText(sharedPreferences.getString("username","1"));
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 }else {
                     if (userDatabase.userDao().login(username.getText().toString(), password.getText().toString()) != null) {
-
                         sharedPreferences.edit().putBoolean("login", true);
+                        sharedPreferences.edit().putString("username",username.getText().toString());
+                        textView.setText(username.getText().toString());
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     } else {
