@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.elearing.MainActivity;
 import com.elearing.R;
 import com.elearing.VideoActivity;
 import com.elearing.api.Course;
@@ -116,6 +117,13 @@ public class MyAdapter extends RecyclerView.Adapter{
                 TextView teacherName = ((MyViewHolder2) holder).itemView.findViewById(R.id.teachername);
                 TextView number = ((MyViewHolder2) holder).itemView.findViewById(R.id.number);
                 TextView price = ((MyViewHolder2) holder).itemView.findViewById(R.id.price);
+
+                VideoView vv = ((MyViewHolder2) holder).videoView;
+                Uri uri = Uri.parse("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+                vv.setVideoURI(uri);
+                vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
+                vv.start();
+
                 number.setText("number:0");
                 price.setText("price:"+0);
                 teacherName.setText("teacherName:"+"李明");
@@ -140,7 +148,12 @@ public class MyAdapter extends RecyclerView.Adapter{
 
     }
 
+    class MyPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
 
+        }
+    }
 
 
 
