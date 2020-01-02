@@ -22,6 +22,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button loginButton;
     private Button registeButton;
+    private Button exitBtn;
     private NotificationsViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,6 +50,18 @@ public class NotificationsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        exitBtn = root.findViewById(R.id.button14);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 }
