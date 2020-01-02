@@ -2,7 +2,9 @@ package com.elearing.ui.home;
 
 import android.content.Context;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,14 +23,17 @@ import com.elearing.api.Teacher;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class MyAdapter222 extends RecyclerView.Adapter{
+public class MyAdapter222 extends RecyclerView.Adapter implements ItemMoveListener {
     List<String> list;
     Context context;
+    private ItemDragListener mItemDragListener;
 
-    public MyAdapter222(Context context){
+    public MyAdapter222(Context context, ItemDragListener itemDragListener){
         this.context = context;
+        mItemDragListener = itemDragListener;
         list = new ArrayList<>();
         list.add("语文");
         list.add("数学");
@@ -66,9 +71,25 @@ public class MyAdapter222 extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
 
         ((MyViewHolder) holder).textView.setText(list.get(position));
+        int con;
+        if(list.get(position).compareTo("语文") == 0) {
+            con = 0;
+        }else if(list.get(position).compareTo("数学") == 0){
+            con =1;
+        }else if(list.get(position).compareTo("英语") == 0){
+            con =2;
+        }else if(list.get(position).compareTo("物理") == 0){
+            con =3;
+        }else if(list.get(position).compareTo("化学") == 0){
+            con =4;
+        }else if(list.get(position).compareTo("生物") == 0){
+            con =5;
+        }else if(list.get(position).compareTo("地理") == 0){
+            con =6;
+        }
         switch (position){
             case 0:
                 ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.yw));
@@ -92,6 +113,20 @@ public class MyAdapter222 extends RecyclerView.Adapter{
                 ((MyViewHolder) holder).view.setImageDrawable(context.getResources().getDrawable(R.drawable.dili));
                 break;
         }
+//        notifyItemInserted(position);
+//        notifyItemRemoved(position);
+
+        ((MyViewHolder) holder).view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mItemDragListener.onStartDrags(holder);
+                Log.v("ee","rf");
+                return false;
+            }
+        });
+
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -102,8 +137,23 @@ public class MyAdapter222 extends RecyclerView.Adapter{
 
 
     }
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        //1、交换数据
+        Collections.swap(list, fromPosition, toPosition);
+        //2、刷新
+        notifyItemMoved(fromPosition, toPosition);
+        return true;
+    }
 
-
+    @Override
+    public boolean onItemRemove(int position) {
+        //1、删除数据
+        list.remove(position);
+        //2、刷新
+        notifyItemRemoved(position);
+        return true;
+    }
 
 
 

@@ -41,6 +41,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
@@ -57,8 +58,8 @@ import com.google.gson.Gson;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-public class HomeFragment extends Fragment {
-
+public class HomeFragment extends Fragment implements ItemDragListener {
+    ItemTouchHelper mItemTouchHelper;
     private HomeViewModel homeViewModel;
     public MyAdapter222 myAdapter;
 
@@ -186,7 +187,7 @@ public class HomeFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        myAdapter = new MyAdapter222(this.getActivity());
+        myAdapter = new MyAdapter222(this.getActivity(),this);
         myAdapter.setOnItemClickListener(new MyAdapter222.OnItemClickListener(){
 
             @Override
@@ -196,8 +197,20 @@ public class HomeFragment extends Fragment {
         });
         recyclerView.setAdapter(myAdapter);
 
+
+        MyItemTouchHelperCallback mCallback = new MyItemTouchHelperCallback(myAdapter);
+        mItemTouchHelper = new ItemTouchHelper(mCallback);
+        mItemTouchHelper.attachToRecyclerView(recyclerView);
+
         return root;
     }
+
+
+
+    public void onStartDrags(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
+
 
 
 
