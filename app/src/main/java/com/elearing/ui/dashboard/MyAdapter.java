@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.elearing.R;
 import com.elearing.VideoActivity;
 import com.elearing.api.Course;
+import com.elearing.api.GetRequest;
 import com.elearing.api.Material;
 import com.elearing.api.Teacher;
 import com.squareup.picasso.Picasso;
@@ -98,29 +99,35 @@ public class MyAdapter extends RecyclerView.Adapter{
         switch (dataSet.get(position).getShowType()) {
             case 1:
                 System.out.println("填装数据");
+                ImageView imageView = ((MyViewHolder) holder).itemView.findViewById(R.id.background);
+                Glide.with(context).load(GetRequest.BASE_URL+"courses/"+dataSet.get(position).getId()+"/photo")
+                        .into(imageView);
                 ((MyViewHolder) holder).textView.setText(dataSet.get(position).getName());
-                ((MyViewHolder) holder).classInformationText.setText(dataSet.get(position).getName() + "improve" + position);
-                Glide.with(context).load("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
-                        .into(((MyViewHolder) holder).view);
-                ImageView imageView = (ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background);
-                imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.com_facebook_button_icon));
-                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
+                ((MyViewHolder) holder).classInformationText.setText(dataSet.get(position).getDescription());
+                System.out.println(GetRequest.BASE_URL+"courses/"+dataSet.get(position).getId()+"/photo");
                 break;
             case 2:
+                System.out.println(GetRequest.BASE_URL+"courses/"+dataSet.get(position).getId()+"/photo");
+                ImageView imageView2 = ((MyViewHolder2) holder).itemView.findViewById(R.id.tPhoto);
+                Picasso.with(context).load(GetRequest.BASE_URL+"/courses/"+dataSet.get(position).getId()+"/photo")
+                        .into(imageView2);
                 ((MyViewHolder2) holder).textView.setText(dataSet.get(position).getName());
-                ((MyViewHolder2) holder).classInformationText.setText(dataSet.get(position).getName());
-                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
-                Picasso.with(context).load("http://172.30.121.158.138:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
-                        .into((ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background));
+                ((MyViewHolder2) holder).classInformationText.setText(dataSet.get(position).getDescription());
+                TextView teacherName = ((MyViewHolder2) holder).itemView.findViewById(R.id.teachername);
+                TextView number = ((MyViewHolder2) holder).itemView.findViewById(R.id.number);
+                TextView price = ((MyViewHolder2) holder).itemView.findViewById(R.id.price);
+                number.setText("number:0");
+                price.setText("price:"+0);
+                teacherName.setText("teacherName:"+"李明");
                 break;
 
             case 3:
+                System.out.println(GetRequest.BASE_URL+"courses/"+dataSet.get(position).getId()+"/photo");
+                ImageView imageView3 = ((MyViewHolder3) holder).itemView.findViewById(R.id.background);
+                Picasso.with(context).load(GetRequest.BASE_URL+"courses/"+dataSet.get(position).getId()+"/photo")
+                        .into(imageView3);
                 ((MyViewHolder3) holder).classname.setText(dataSet.get(position).getName());
-                ((MyViewHolder3) holder).classInformationText.setText(dataSet.get(position).getName());
-                System.out.println("yes555");
-                System.out.println("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo");
-                Picasso.with(context).load("http://172.30.121.158:8080/elearn/courses/"+dataSet.get(position).getId()+"/photo")
-                        .into((ImageView) ((MyViewHolder) holder).itemView.findViewById(R.id.background));
+                ((MyViewHolder3) holder).classInformationText.setText(dataSet.get(position).getDescription());
                 break;
         }
         holder.itemView.setOnClickListener(new View.OnClickListener(){

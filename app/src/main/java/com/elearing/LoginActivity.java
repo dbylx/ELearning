@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private LoginButton loginButton;
     private UserDatabase userDatabase;
 
+    public static String name = null;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -102,14 +103,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPreferences = getSharedPreferences("login_message", Context.MODE_PRIVATE);
                 if(sharedPreferences.getBoolean("login",false)){
-                    textView.setText(sharedPreferences.getString("username","1"));
+                    name = sharedPreferences.getString("username","1");
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 }else {
                     if (userDatabase.userDao().login(username.getText().toString(), password.getText().toString()) != null) {
                         sharedPreferences.edit().putBoolean("login", true);
                         sharedPreferences.edit().putString("username",username.getText().toString());
-                        textView.setText(username.getText().toString());
+                        name = username.getText().toString();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     } else {

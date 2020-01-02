@@ -87,6 +87,7 @@ public class DashboardFragment extends Fragment {
                 course1.setId(course.getId());
                 course1.setCategoryId(course.getCategoryId());
                 course1.setPrice(course.getPrice());
+                course1.setShowType(course.getShowType());
                 try {
                     course1.setOpenDate(formatter.parse((course.getOpenDate())));
                 } catch (ParseException e) {
@@ -142,6 +143,7 @@ public class DashboardFragment extends Fragment {
             public void onResponse(Call<List<Teacher>> call, Response<List<Teacher>> response) {
                 System.out.println(response.body().size());
                 intent.putExtra("teachers",(Serializable)response.body());
+                teacherDataSet.add(response.body().get(0));
                 process++;
                 if(process==2)
                 startActivity(intent);
@@ -167,6 +169,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Material>> call, Response<List<Material>> response) {
                 intent.putExtra("materials",(Serializable)response.body());
+                materialDataSet.add(response.body().get(0));
                 process++;
                 if(process==2)
                     startActivity(intent);
@@ -195,10 +198,21 @@ public class DashboardFragment extends Fragment {
         call.enqueue(new Callback<List<Course>>() {
             @Override
             public void onResponse(Call<List<Course>> call, Response<List<Course>> response) {
-
-
+                    int i = 0;
                     List<Course> courses = response.body();
-                    for (Course course:courses) {
+                    for (final Course course:courses) {
+                        if(i%3+1==1) {
+                            course.setShowType(1);
+                        }
+
+                        if(i%3+1==2) {
+                            course.setShowType(2);
+                        }
+
+                        if(i%3+1==3) {
+                            course.setShowType(3);
+                        }
+
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         dataSet.add(course);
                         com.elearing.catchPackage.entity.Course course1 = new com.elearing.catchPackage.entity.Course();
@@ -218,7 +232,10 @@ public class DashboardFragment extends Fragment {
                         course1.setShared(course.getShared());
                         course1.setStatus(course.getStatus());
                         course1.setSharedUrl(course.getSharedUrl());
+                        course1.setShowType(course.getShowType());
                         courseMessageDao.catchCourseMessage(course1);
+                        i++;
+
                     }
                     myAdapter.refresh(dataSet);
             }

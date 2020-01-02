@@ -39,31 +39,29 @@
                 android:textColor="#A7A4A4"
                 />
 
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_person_gray_24dp"
-                    android:drawablePadding="16dp"
-                    android:fontFamily="@font/calibri"
-                    android:hint="Fullname"
-                    android:text="Admin"
-                    android:inputType="text"
-                    android:textSize="16sp" />
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_gray_24dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/calibri"
+                android:hint="Fullname"
+                android:inputType="text"
+                android:textSize="16sp" />
 
 
             <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_lock_gray_24dp"
-                    android:drawablePadding="16dp"
-                    android:fontFamily="@font/calibri"
-                    android:hint="Password"
-                    android:text="shashank"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:textSize="16sp" />
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_lock_gray_24dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/calibri"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/sign_up"

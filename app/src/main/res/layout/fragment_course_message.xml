@@ -28,6 +28,7 @@
                 android:fontFamily="@font/calibri"
                 android:padding="10dp"
                 android:text="courseName"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -44,6 +45,7 @@
                 android:fontFamily="@font/calibri"
                 android:padding="10dp"
                 android:text="coursePrice:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -61,6 +63,7 @@
 
                 android:padding="10dp"
                 android:text="status:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -78,6 +81,7 @@
 
                 android:padding="10dp"
                 android:text="openDate:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -95,6 +99,7 @@
 
                 android:padding="10dp"
                 android:text="lastUpdate:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -113,6 +118,7 @@
 
                 android:padding="10dp"
                 android:text="sharedURL:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 

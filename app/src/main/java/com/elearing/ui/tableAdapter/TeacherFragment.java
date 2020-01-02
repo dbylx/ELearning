@@ -11,13 +11,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.elearing.R;
+import com.elearing.api.GetRequest;
 import com.elearing.api.Teacher;
+import com.elearing.ui.dashboard.MyAdapter;
 
 import java.util.List;
 
@@ -59,14 +65,22 @@ public class TeacherFragment extends Fragment {
         TextView telephone = root.findViewById(R.id.teachertelephone);
         TextView email = root.findViewById(R.id.email);
         TextView description = root.findViewById(R.id.des);
-
         Intent intent = getActivity().getIntent();
         List<Teacher> teachers = (List<Teacher>) intent.getSerializableExtra("teachers");
+
         if(teachers!=null){
-            teacherName.setText("TeacherName："+teachers.get(0).getName());
-            telephone.setText("Telephone"+teachers.get(0).getTelephone());
-            email.setText("Email:"+teachers.get(0).getEmail());
-            description.setText("Description"+teachers.get(0).getDescription());
+            ImageView teacherPhoto= root.findViewById(R.id.teacherphoto);
+            Glide.with(getContext()).load(GetRequest.BASE_URL+"teachers/"+teachers.get(0).getUserid()+"/photo")
+                    .into(teacherPhoto);
+
+            String str1 = "<font color=\"#000000\"><big>CourseName:</big></font>"+"<br />"+teachers.get(0).getName();
+            String str2 = "<font color=\"#000000\"><big>Telephone:</big></font>"+"<br />"+teachers.get(0).getTelephone();
+            String str3 = "<font color=\"#000000\"><big>Email:</big></font>"+"<br />"+teachers.get(0).getEmail();
+            String str4 = "<font color=\"#000000\"><big>Description:</big></font>"+"<br />"+teachers.get(0).getDescription();
+            teacherName.setText(Html.fromHtml(str1));
+            telephone.setText(Html.fromHtml(str2));
+            email.setText(Html.fromHtml(str3));
+            description.setText(Html.fromHtml(str4));
         }
 
         return root;

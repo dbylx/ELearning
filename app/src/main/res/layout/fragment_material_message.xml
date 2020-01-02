@@ -29,6 +29,7 @@
 
                     android:padding="10dp"
                     android:text="materialURL"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
                 <ImageView
                     android:layout_width="match_parent"
@@ -45,6 +46,7 @@
 
                     android:padding="10dp"
                     android:text="res"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
 

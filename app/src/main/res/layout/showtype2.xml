@@ -1,6 +1,7 @@
 <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
+    android:keepScreenOn="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="30px"
@@ -86,14 +87,14 @@
                 android:text="teachername" />
 
             <ImageView
-                android:id="@+id/teacherphoto"
+                android:id="@+id/tPhoto"
 
                 android:layout_width="match_parent"
-                android:layout_gravity="center_vertical"
-
                 android:layout_height="79dp"
+
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
                 android:src="@drawable/snow" />
 
 

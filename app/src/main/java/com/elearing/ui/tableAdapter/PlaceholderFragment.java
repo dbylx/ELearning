@@ -2,6 +2,7 @@ package com.elearing.ui.tableAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,12 +62,19 @@ public class PlaceholderFragment extends Fragment {
         TextView lastUpdate = root.findViewById(R.id.lastUpdate);
         TextView shareUrl = root.findViewById(R.id.sharedURL);
 
-        courseName.setText("CourseName:"+course.getName());
-        coursePrice.setText("Price:"+course.getPrice());
-        status.setText("Status:"+course.getStatus());
-        openDate.setText("OpenDate:"+course.getOpenDate().toString());
-        lastUpdate.setText("LastUpdate:"+course.getLastUpdateOn().toString());
-        shareUrl.setText("Url:"+course.getSharedUrl());
+        String str1 = "<font color=\"#000000\"><big>CourseName:</big></font>"+"<br />"+course.getName();
+        String str2 = "<font color=\"#000000\"><big>Price:</big></font>"+"<br />"+course.getPrice();
+        String str3 = "<font color=\"#000000\"><big>Status:</big></font>"+"<br />"+course.getStatus();
+        String str4 = "<font color=\"#000000\"><big>OpenDate:</big></font>"+"<br />"+course.getOpenDate().toString();
+        String str5 = "<font color=\"#000000\"><big>LastUpdate:</big></font>"+"<br />"+course.getLastUpdateOn().toString();
+        String str6 = "<font color=\"#000000\"><big>Url:</big></font>"+"<br />"+course.getSharedUrl();
+
+        courseName.setText(Html.fromHtml(str1));
+        coursePrice.setText(Html.fromHtml(str2));
+        status.setText(Html.fromHtml(str3));
+        openDate.setText(Html.fromHtml(str4));
+        lastUpdate.setText(Html.fromHtml(str5));
+        shareUrl.setText(Html.fromHtml(str6));
         return root;
     }
 }

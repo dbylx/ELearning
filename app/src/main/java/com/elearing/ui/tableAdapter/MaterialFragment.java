@@ -2,6 +2,7 @@ package com.elearing.ui.tableAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,10 @@ public class MaterialFragment extends Fragment {
         List<Material> materials = (List<Material>) intent.getSerializableExtra("materials");
 
         if(materials!=null){
-            materialUrl.setText("MaterialUrl:"+materials.get(0).getMaterialUrl());
-            resource.setText("Description:"+materials.get(0).getDescription());
+            String str1 = "<font color=\"#000000\"><big>MaterialUrl:</big></font>"+"<br />"+materials.get(0).getMaterialUrl();
+            String str2 =  "<font color=\"#000000\"><big>Description:</big></font>"+"<br />"+materials.get(0).getDescription();
+            materialUrl.setText(Html.fromHtml(str1));
+            resource.setText(Html.fromHtml(str2));
         }
 
         return root;

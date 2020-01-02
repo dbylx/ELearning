@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import com.elearing.api.Course;
 import com.elearing.api.Material;
+import com.elearing.api.ShareApi;
 import com.elearing.api.Teacher;
+import com.elearing.ui.dashboard.DashboardFragment;
 import com.elearing.ui.tableAdapter.MaterialFragment;
 import com.elearing.ui.tableAdapter.PlaceholderFragment;
 import com.elearing.ui.tableAdapter.TeacherFragment;
@@ -38,6 +40,24 @@ public class Table3Activity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         Intent intent = getIntent();
+
+        ImageButton imageButtonShare = findViewById(R.id.fenxiang);
+        imageButtonShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareApi.showShare(getApplicationContext());
+            }
+        });
+
+        ImageButton imageButtonBack = findViewById(R.id.fanhui);
+        imageButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent1 = new Intent(getApplicationContext(), DashboardFragment.class);
+               startActivity(intent1);
+            }
+        });
+
 
         String courseJson = intent.getStringExtra("course");
         Intent courseIntent = new Intent(getApplicationContext(),PlaceholderFragment.class);
