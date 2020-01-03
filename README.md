@@ -88,16 +88,19 @@ We use access the home page, APP will connect to server to request if the APP ha
 
 **5.Home Module**
 
-5.1.UI Design
- ![p](https://github.com/dbylx/ELearning/blob/master/screenshots/11.png)
- ![p](https://github.com/dbylx/ELearning/blob/master/screenshots/12.png)
 
+5.1.UI Design
+
+
+![p](https://github.com/dbylx/ELearning/blob/master/screenshots/11.png)
+![p](https://github.com/dbylx/ELearning/blob/master/screenshots/12.png)
 ![p](https://github.com/dbylx/ELearning/blob/master/screenshots/13.png)
 ![p](https://github.com/dbylx/ELearning/blob/master/screenshots/14.png)
 
+
 5.2 Use case
  
- ![p](https://github.com/dbylx/ELearning/blob/master/screenshots/23.png)
+![p](https://github.com/dbylx/ELearning/blob/master/screenshots/23.png)
  
 5.3function
 
